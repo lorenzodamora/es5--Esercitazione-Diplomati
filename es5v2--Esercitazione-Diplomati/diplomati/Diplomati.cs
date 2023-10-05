@@ -69,20 +69,14 @@ namespace es5__23_24
 			}
 		}
 
-		public string[] GetNominativi()
+		public string[] GetDiplomati(bool solo_nominativi = true)
 		{
 			string[] result = new string[diplomatiCounter];
 			for(int i = 0; i < diplomatiCounter; i++)
-				result[i] = elencoDiplomati[i].Nominativo;
-
-			return result;
-		}
-
-		public string[] GetDiplomati()
-		{
-			string[] result = new string[diplomatiCounter];
-			for(int i = 0; i < diplomatiCounter; i++)
-				result[i] = elencoDiplomati[i].Nominativo + ";" + elencoDiplomati[i].Voto + ";" + (elencoDiplomati[i] is Nuovo ? "nuovo" : "vecchio");
+				if(solo_nominativi)
+					result[i] = elencoDiplomati[i].Nominativo;
+				else
+					result[i] = elencoDiplomati[i].Nominativo + ";" + elencoDiplomati[i].Voto + ";" + (elencoDiplomati[i] is Nuovo ? "nuovo" : "vecchio");
 
 			return result;
 		}
