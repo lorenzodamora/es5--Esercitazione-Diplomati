@@ -110,7 +110,7 @@ namespace es5__23_24
 				Nominativo = "inserimento non valido, [throw]";
 				_SetVoto = 0f;
 			}
-			
+
 		}
 
 		public Nuovo(string nominativo, string voto_stringa)
@@ -148,5 +148,23 @@ namespace es5__23_24
 			return Voto >= _minConcorsi;
 		}
 
+	}
+
+	public class Class0
+	{
+		private int voto;
+		protected virtual int MinVoto { get { return 10; } }
+		public int Voto
+		{
+			get { return voto; }
+			set { SetVoto(value); }
+		}
+		public Class0(int voto) { SetVoto(voto); }
+		public void SetVoto(int voto) { if(voto >= MinVoto) this.voto = voto; }
+	}
+	public class Class1 : Class0
+	{
+		protected override int MinVoto { get { return 20; } }
+		public Class1(int voto) : base(voto) { }
 	}
 }

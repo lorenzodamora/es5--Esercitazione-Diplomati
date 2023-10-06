@@ -6,6 +6,7 @@ namespace es5__23_24
 	{
 		private Diplomato[] elencoDiplomati;
 		private short diplomatiCounter;
+		public short Length => diplomatiCounter;
 
 		public Diplomati(int tot = 20)
 		{
@@ -30,6 +31,7 @@ namespace es5__23_24
 			}
 		}
 
+		//dovrei togliere gli elementi vuoti
 		public Diplomato[] GetElenco() { return elencoDiplomati; }
 
 		private static int GetLength(int tot)

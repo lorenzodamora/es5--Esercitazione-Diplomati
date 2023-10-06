@@ -18,6 +18,10 @@ namespace es5__23_24
 		 */
 		static void Main()
 		{
+			Console.WriteLine($"TEST\nClass0 MinVoto:10\nInserito 11, risultato : {new Class0(11).Voto}\n\n" +
+				$"Class1 MinVoto:20\nInserito 11, risultato : {new Class1(11).Voto}\n" +
+				$"Class1 MinVoto:20\nInserito 21, risultato : {new Class1(21).Voto}\n");
+
 			Console.WriteLine("Schermo intero? (f11)");
 			Console.ReadKey();
 			Console.Clear();
