@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace es5__23_24
+namespace es5_v2__23_24
 {
 	public static class DiplomatiSort
 	{

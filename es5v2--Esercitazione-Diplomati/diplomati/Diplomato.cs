@@ -1,6 +1,6 @@
 ﻿//using System;
 
-namespace es5__23_24
+namespace es5_v2__23_24
 {
 	public class Diplomato
 	{
@@ -60,7 +60,7 @@ namespace es5__23_24
 			return true;
 		}
 
-		public bool SetVoto(float voto)
+		public virtual bool SetVoto(float voto)
 		{
 			//(_old ? 36 : 60) (_old ? 60 : 100)
 			if(voto < _minVoto) return false; // non si è diplomato
@@ -69,7 +69,7 @@ namespace es5__23_24
 			return true;
 		}
 
-		public bool SetVoto(string voto_stringa)
+		public virtual bool SetVoto(string voto_stringa)
 		{
 			if(float.TryParse(voto_stringa, out float voto) || voto < _minVoto || voto > _maxVoto)
 			{
@@ -91,7 +91,7 @@ namespace es5__23_24
 		}
 
 		//
-		public bool GetAbileAiConcorsi()
+		public virtual bool GetAbileAiConcorsi()
 		{
 			return _voto >= _minConcorsi;
 		}
@@ -103,26 +103,11 @@ namespace es5__23_24
 		private const short _maxVoto = 100;
 		private const short _minConcorsi = 70;
 
-		public Nuovo(string nominativo = "nessun nominativo", float voto = 0f)
-		{
-			if(!SetNominativo(nominativo) & SetVoto(voto))
-			{
-				Nominativo = "inserimento non valido, [throw]";
-				_SetVoto = 0f;
-			}
+		public Nuovo(string nominativo = "nessun nominativo", float voto = 0f) : base(nominativo, voto) { }
 
-		}
+		public Nuovo(string nominativo, string voto_stringa) : base(nominativo, voto_stringa) { }
 
-		public Nuovo(string nominativo, string voto_stringa)
-		{
-			if(!SetNominativo(nominativo) & SetVoto(voto_stringa))
-			{
-				Nominativo = "inserimento non valido, [throw]";
-				_SetVoto = 0f;
-			}
-		}
-
-		new public bool SetVoto(float voto)
+		public override bool SetVoto(float voto)
 		{
 			//(_old ? 36 : 60) (_old ? 60 : 100)
 			if(voto < _minVoto) return false; // non si è diplomato
@@ -131,7 +116,7 @@ namespace es5__23_24
 			return true;
 		}
 
-		new public bool SetVoto(string voto_stringa)
+		public override bool SetVoto(string voto_stringa)
 		{
 			if(float.TryParse(voto_stringa, out float voto) || voto < _minVoto || voto > _maxVoto)
 			{
@@ -143,7 +128,7 @@ namespace es5__23_24
 		}
 
 		//
-		new public bool GetAbileAiConcorsi()
+		public override bool GetAbileAiConcorsi()
 		{
 			return Voto >= _minConcorsi;
 		}
